@@ -1,5 +1,8 @@
+console.log("script included");
+
 
 async function startCamera(){
+    console.log("starting cammera...");
     try{
         const videoOutputElement = document.getElementById('webcam');
     

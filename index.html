@@ -7,11 +7,37 @@
         </style>
     </head>
     <body>
-        <h1> Commit 2 </h1>
+        <h1> Commit 3 </h1>
 
         <button id="cammeraStarterButton"> Start Cammera </button>
         <video id="webcam" autopaly playsinline></video>
 
-        <script source="app.js"></script>
+        <!-- <script source="script.js"></script> -->
+        <script>
+            console.log("script included");
+
+
+async function startCamera(){
+    console.log("starting cammera...");
+    try{
+        const videoOutputElement = document.getElementById('webcam');
+    
+        const stream = await navigator.mediaDevices.getUserMedia({
+            video: true,
+            audio: false
+        })
+    
+        videoOutputElement.srcObject = stream
+        
+        document.getElementById('cammeraStarterButton').disabled = true;
+    }
+    catch(err)
+    {
+        alert("Error: " + err);
+    }
+}
+
+document.getElementById('cammeraStarterButton').addEventListener('click', startCamera);
+        </script>
     </body>
 </html>
