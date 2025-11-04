@@ -1,43 +1,26 @@
-<html>
-    <head>
-        <style>
-            video{
-                max-width: 100%;
-            }
-        </style>
-    </head>
-    <body>
-        <h1> Commit 3 </h1>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kamerka JS</title>
+    <style>
+        /* Proste style, aby wideo nie było za duże */
+        video {
+            max-width: 100%;
+            border: 2px solid #333;
+            background: #111;
+        }
+    </style>
+</head>
+<body>
 
-        <button id="cammeraStarterButton"> Start Cammera </button>
-        <video id="webcam" autopaly playsinline></video>
-
-        <!-- <script source="script.js"></script> -->
-        <script>
-            console.log("script included");
-
-
-async function startCamera(){
-    console.log("starting cammera...");
-    try{
-        const videoOutputElement = document.getElementById('webcam');
+    <h1>Wyświetlanie kamerki w JavaScript</h1>
     
-        const stream = await navigator.mediaDevices.getUserMedia({
-            video: true,
-            audio: false
-        })
+    <button id="startButton">Uruchom kamerę</button>
     
-        videoOutputElement.srcObject = stream
-        
-        document.getElementById('cammeraStarterButton').disabled = true;
-    }
-    catch(err)
-    {
-        alert("Error: " + err);
-    }
-}
+    <video id="webcam" autoplay playsinline></video>
 
-document.getElementById('cammeraStarterButton').addEventListener('click', startCamera);
-        </script>
-    </body>
+    <script src="app.js"></script>
+</body>
 </html>
